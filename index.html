@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MarketHub — Market by Market, Shop Smart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="icon-btn" aria-label="Menu">☰</button>
+    <a class="brand" href="#home" onclick="showHome()">
+      <span class="brand-mark">M</span><span>Market<span class="green">Hub</span></span>
+    </a>
+    <div class="search">
+      <span>⌕</span>
+      <input id="searchInput" type="search" placeholder="Search for products, shops..." oninput="searchSite()">
+    </div>
+    <button class="icon-btn" aria-label="Cart">🛒</button>
+    <button class="icon-btn" aria-label="Account menu" onclick="toggleMenu()">⋮</button>
+  </header>
+
+  <div id="accountMenu" class="menu hidden">
+    <button>👤 Customer Dashboard</button>
+    <button onclick="alert('Partner registration will be connected in the next stage.')">🤝 Partner With Us</button>
+    <button onclick="alert('Partner Dashboard will be connected to seller authentication.')">📊 Partner Dashboard</button>
+    <button>🛒 My Orders</button>
+    <button>❤️ Saved Items</button>
+    <button>⚙️ Settings</button>
+  </div>
+
+  <main id="app">
+    <section id="homePage" class="page">
+      <section class="hero">
+        <div>
+          <span class="pill">🇳🇬 Built for African Markets</span>
+          <h1>Every Market.<br><span class="green">One Platform.</span></h1>
+          <p>Discover products, trusted shops and businesses from Nigeria's markets — all in one place.</p>
+          <button class="primary" onclick="showMarkets()">Explore Markets →</button>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Featured Listings</h2>
+          <button class="text-btn">View All →</button>
+        </div>
+        <div id="featuredGrid" class="product-grid"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <h2>Markets</h2>
+          <button class="text-btn" onclick="showMarkets()">View All →</button>
+        </div>
+        <div id="marketTabs" class="market-tabs"></div>
+      </section>
+    </section>
+
+    <section id="marketsPage" class="page hidden">
+      <div class="breadcrumb">Home › Markets</div>
+      <h1>Markets</h1>
+      <p class="muted">Choose a market to discover registered shops.</p>
+      <div id="marketsGrid" class="markets-grid"></div>
+    </section>
+
+    <section id="marketPage" class="page hidden">
+      <div class="breadcrumb">Home › Markets › <span id="marketCrumb"></span></div>
+      <div class="market-hero">
+        <div>
+          <span class="market-icon">🏪</span>
+          <h1 id="marketTitle"></h1>
+          <p id="marketDescription"></p>
+          <span id="marketStats" class="muted"></span>
+        </div>
+        <div class="market-photo">MARKET</div>
+      </div>
+      <div class="only-all-shops">🏪 <strong>All Shops</strong></div>
+      <div class="section-head">
+        <h2 id="shopsTitle"></h2>
+        <select><option>Sort by: Popular</option><option>Highest Rated</option><option>Newest</option></select>
+      </div>
+      <div id="shopsGrid" class="shops-grid"></div>
+    </section>
+
+    <section id="shopPage" class="page hidden">
+      <div class="breadcrumb">Home › Markets › <span id="shopMarketCrumb"></span> › <span id="shopCrumb"></span></div>
+      <div class="shop-header">
+        <div class="shop-avatar">🏪</div>
+        <div>
+          <span class="verified">✓ Verified</span>
+          <h1 id="shopTitle"></h1>
+          <p id="shopMeta"></p>
+          <p>⭐ 4.7 · Trusted shop</p>
+        </div>
+        <button class="whatsapp" onclick="alert('WhatsApp chat will use the seller’s registered number.')">💬 Chat on WhatsApp</button>
+      </div>
+      <div class="only-all-shops">🛍️ <strong>All Products</strong></div>
+      <div class="section-head">
+        <h2>Products</h2>
+        <select><option>Sort by: Popular</option><option>Price: Low to High</option><option>Price: High to Low</option></select>
+      </div>
+      <div id="shopProducts" class="product-grid"></div>
+    </section>
+
+    <section id="searchPage" class="page hidden">
+      <div class="breadcrumb">Home › Search</div>
+      <h1>Search Results</h1>
+      <p id="searchSummary" class="muted"></p>
+      <div id="searchResults" class="product-grid"></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button onclick="showHome()">⌂<span>Home</span></button>
+    <button onclick="showMarkets()">▦<span>Markets</span></button>
+    <button>🛒<span>Cart</span></button>
+    <button>🔔<span>Notifications</span></button>
+    <button>♙<span>Account</span></button>
+  </nav>
+
+  <script src="app.js"></script>
+</body>
+</html>
